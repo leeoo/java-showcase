@@ -1,0 +1,48 @@
+# !!! \u6ce8\uff1a\u6b64\u914d\u7f6e\u6587\u4ef6\u662fmybatis\u5b98\u65b9\u7684\u6f14\u793a\u9879\u76eeJPetStore\u4e2d\u7684\uff01
+
+# Log4j2 loads official configuration file order: log4j2.properties > log4j2.yml > log4j2.json > log4j2.xml
+
+# Rules reminder:
+# DEBUG < INFO < WARN < ERROR < FATAL
+
+status = error
+name = PropertiesConfig
+ 
+property.filename = target/rolling/rollingtest.log
+ 
+filter.threshold.type = ThresholdFilter
+filter.threshold.level = debug
+ 
+appender.console.type = Console
+appender.console.name = STDOUT
+appender.console.layout.type = PatternLayout
+appender.console.layout.pattern = %m%n
+ 
+#appender.rolling.type = RollingFile
+#appender.rolling.name = RollingFile
+#appender.rolling.fileName = ${filename}
+#appender.rolling.filePattern = target/rolling2/test1-%d{MM-dd-yy-HH-mm-ss}-%i.log.gz
+#appender.rolling.layout.type = PatternLayout
+#appender.rolling.layout.pattern = %d %p %C{1.} [%t] %m%n
+#appender.rolling.policies.type = Policies
+#appender.rolling.policies.time.type = TimeBasedTriggeringPolicy
+#appender.rolling.policies.time.interval = 2
+#appender.rolling.policies.time.modulate = true
+#appender.rolling.policies.size.type = SizeBasedTriggeringPolicy
+#appender.rolling.policies.size.size=100MB
+#appender.rolling.strategy.type = DefaultRolloverStrategy
+#appender.rolling.strategy.max = 5
+ 
+appender.list.type = List
+appender.list.name = List
+appender.list.filter.threshold.type = ThresholdFilter
+appender.list.filter.threshold.level = error
+ 
+#logger.rolling.name = com.example.my.app
+#logger.rolling.level = debug
+#logger.rolling.additivity = false
+#logger.rolling.appenderRef.rolling.ref = RollingFile
+# 
+rootLogger.level = info
+rootLogger.appenderRef.stdout.ref = STDOUT
+

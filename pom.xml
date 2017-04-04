@@ -1,0 +1,91 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.lex.showcase</groupId>
+    <artifactId>showcase</artifactId>
+    <packaging>pom</packaging>
+    <version>0.1</version>
+
+    <modules>
+        <module>base-core</module>
+        <module>learning</module>
+        <module>web-service</module>
+        <module>web-app</module>
+        <module>x-spring-boot</module>
+        <module>x-undertow</module>
+        <module>x-light-java</module>
+        <module>x-kafka</module>
+        <module>x-activemq</module>
+        <module>x-bigdata</module>
+        <module>x-rpc</module>
+        <!--
+        <module>x-redis</module>
+        <module>x-memcached</module>
+        <module>x-mybatis-plus</module>
+        -->
+    </modules>
+
+    <description>Only including common project settings and minimum dependencies(Logging and testing).</description>
+    <!-- 注意：因为子模块之间可能(结合dependencyManagement)使用import方式来非继承式地依赖其他子模块，
+    所以需要事先将最顶层执行 mvn install 将其安装到本地仓库！否则子模块执行任何任务都将报找不到版本的错误！-->
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+
+        <log4j2.version>2.8.1</log4j2.version>
+        <slf4j.version>1.7.25</slf4j.version>
+        <junit.version>4.12</junit.version>
+        <assertj.version>3.5.2</assertj.version>
+        <mockito.version>1.10.19</mockito.version>
+        <!--<mockito.version>2.7.21</mockito.version>-->
+        <powermock.version>1.6.6</powermock.version>
+    </properties>
+
+    <dependencies>
+        <!-- log4j2 -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${log4j2.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j2.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <!-- use 2.5.0 for Java 7 projects -->
+            <version>${assertj.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-all</artifactId>
+            <version>${mockito.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.powermock</groupId>
+            <artifactId>powermock-core</artifactId>
+            <version>1.6.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.powermock</groupId>
+            <artifactId>powermock-api-mockito</artifactId>
+            <version>${powermock.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+</project>
