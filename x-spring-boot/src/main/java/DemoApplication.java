@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * Created by Lex on 2017/2/2.
  */
 @RestController
 @SpringBootApplication
