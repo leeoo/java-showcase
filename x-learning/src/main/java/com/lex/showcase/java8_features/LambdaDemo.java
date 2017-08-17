@@ -1,10 +1,12 @@
-package com.lex.showcase.java8_new_features;
+package com.lex.showcase.java8_features;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
 
-/**
- *
- */
 public class LambdaDemo {
 
     public static void main(String[] args) {
@@ -19,6 +21,8 @@ public class LambdaDemo {
         userList.stream().forEach(user -> userSet.add(user));
 
         // List to
+        final int portNumber = 3133;
+        userList.stream().forEach(user -> System.out.println(user.getAge() + portNumber));
     }
 
     private static List<User> makeUserList() {

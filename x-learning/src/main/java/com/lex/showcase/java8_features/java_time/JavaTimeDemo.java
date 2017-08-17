@@ -1,4 +1,4 @@
-package com.lex.showcase.java8_new_features.java_time;
+package com.lex.showcase.java8_features.java_time;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
