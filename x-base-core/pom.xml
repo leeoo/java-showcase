@@ -28,18 +28,20 @@
         <!-- <log4jdbc.version>2.3</log4jdbc.version> -->
 
         <!-- MyBatis plugins/extends and dependencies -->
-        <mybatis.version>3.4.2</mybatis.version>
+        <mybatis.version>3.4.4</mybatis.version>
         <mybatis-spring.version>1.3.1</mybatis-spring.version>
         <mybatis-generator.version>1.3.5</mybatis-generator.version>
         <mybatis-pagehelper.version>4.0.3</mybatis-pagehelper.version>
         <mybatis-mapper.version>3.3.0</mybatis-mapper.version>
         <jsqlparser.version>0.9.1</jsqlparser.version>
         <mybatis-ext.version>0.0.1</mybatis-ext.version>
+        <mybatis-plus.version>2.0.7</mybatis-plus.version>
 
         <druid.version>1.0.27</druid.version>
 
         <postgresql.version>42.0.0</postgresql.version>
         <mysql.version>5.1.35</mysql.version>
+        <h2database.version>1.4.196</h2database.version>
 
         <!-- Use the latest version whenever possible. -->
         <jackson.version>2.8.7</jackson.version>
@@ -52,7 +54,7 @@
 
         <xstream.version>1.4.9</xstream.version>
 
-        <shiro.version>1.3.2</shiro.version>
+        <shiro.version>1.4.0</shiro.version>
         <spring-security.version>4.2.2.RELEASE</spring-security.version>
     </properties>
 
@@ -188,6 +190,12 @@
             </dependency>
 
             <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+
+            <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>druid</artifactId>
                 <version>${druid.version}</version>
@@ -249,12 +257,12 @@
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
-                <version>${mybatis.version}</version>
+                <version>${mysql.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.h2database</groupId>
                 <artifactId>h2</artifactId>
-                <version>1.4.192</version>
+                <version>${h2database.version}</version>
             </dependency>
 
             <dependency>
