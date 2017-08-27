@@ -12,7 +12,7 @@
     <artifactId>x-learning</artifactId>
 
     <properties>
-        <spring.version>4.3.8.RELEASE</spring.version>
+        <spring.version>4.3.9.RELEASE</spring.version>
         <spring-batch.version>3.0.7.RELEASE</spring-batch.version>
 
         <!-- Distributed, Big data etc!!! -->
@@ -300,6 +300,10 @@
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
         </dependency>
 
         <!-- Servlet 3.x supports asynchronized servlet request! -->
