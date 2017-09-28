@@ -1,8 +1,17 @@
-package com.lex.showcase.mybatis.model;
+package com.lex.showcase.mybatis.vo;
+
+import com.lex.showcase.mybatis.model.Account;
+import com.lex.showcase.mybatis.model.AccountGroup;
+import org.apache.commons.lang.builder.ToStringBuilder;
 
 import java.util.Date;
+import java.util.List;
 
-public class Account {
+/**
+ * User request object with pagination for query.
+ * @author Lex Li
+ */
+public class AccountRes {
     private Integer id;
 
     private Integer version;
@@ -43,6 +52,22 @@ public class Account {
 
     private Date updatedAt;
 
+    private List<AccountGroup> accountGroups;
+
+    private int pageNo = 1; // 起始页码为1.
+
+    private int pageSize = 20; // Default value is 20 for data size each page.
+
+    /**
+     * 对于弱鸡MySQL，由于其执行SQL时不支持在分页查询语句中进行算术运算操作，
+     * 可在MyBatis的mapper xml文件中使用<bind/>标签作计算，亦可在当前类中计算或者在PagingHelper中计算。
+     */
+    private int offset; // 起始偏移量为0而不是1，其值计算方法为：(pageNo - 1) * pageSize
+
+    public AccountRes() {
+
+    }
+
     public Integer getId() {
         return id;
     }
@@ -72,7 +97,7 @@ public class Account {
     }
 
     public void setUsername(String username) {
-        this.username = username == null ? null : username.trim();
+        this.username = username;
     }
 
     public String getPassword() {
@@ -80,7 +105,7 @@ public class Account {
     }
 
     public void setPassword(String password) {
-        this.password = password == null ? null : password.trim();
+        this.password = password;
     }
 
     public String getSalt() {
@@ -88,7 +113,7 @@ public class Account {
     }
 
     public void setSalt(String salt) {
-        this.salt = salt == null ? null : salt.trim();
+        this.salt = salt;
     }
 
     public String getPasswordHint() {
@@ -96,7 +121,7 @@ public class Account {
     }
 
     public void setPasswordHint(String passwordHint) {
-        this.passwordHint = passwordHint == null ? null : passwordHint.trim();
+        this.passwordHint = passwordHint;
     }
 
     public String getGender() {
@@ -104,7 +129,7 @@ public class Account {
     }
 
     public void setGender(String gender) {
-        this.gender = gender == null ? null : gender.trim();
+        this.gender = gender;
     }
 
     public Integer getAge() {
@@ -120,7 +145,7 @@ public class Account {
     }
 
     public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber == null ? null : phoneNumber.trim();
+        this.phoneNumber = phoneNumber;
     }
 
     public String getEmail() {
@@ -128,7 +153,7 @@ public class Account {
     }
 
     public void setEmail(String email) {
-        this.email = email == null ? null : email.trim();
+        this.email = email;
     }
 
     public String getDescription() {
@@ -136,7 +161,7 @@ public class Account {
     }
 
     public void setDescription(String description) {
-        this.description = description == null ? null : description.trim();
+        this.description = description;
     }
 
     public Boolean getAccountEnabled() {
@@ -176,7 +201,7 @@ public class Account {
     }
 
     public void setCreatedBy(String createdBy) {
-        this.createdBy = createdBy == null ? null : createdBy.trim();
+        this.createdBy = createdBy;
     }
 
     public Date getCreatedAt() {
@@ -192,7 +217,7 @@ public class Account {
     }
 
     public void setUpdatedBy(String updatedBy) {
-        this.updatedBy = updatedBy == null ? null : updatedBy.trim();
+        this.updatedBy = updatedBy;
     }
 
     public Date getUpdatedAt() {
@@ -201,5 +226,47 @@ public class Account {
 
     public void setUpdatedAt(Date updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public List<AccountGroup> getAccountGroups() {
+        return accountGroups;
+    }
+
+    public void setAccountGroups(List<AccountGroup> accountGroups) {
+        this.accountGroups = accountGroups;
+    }
+
+    public int getPageNo() {
+        return pageNo;
+    }
+
+    public void setPageNo(int pageNo) {
+        this.pageNo = pageNo;
+    }
+
+    public int getPageSize() {
+        return pageSize;
+    }
+
+    public void setPageSize(int pageSize) {
+        this.pageSize = pageSize;
+    }
+
+    public int getOffset() {
+        return offset;
+    }
+
+    public void setOffset(int offset) {
+        this.offset = offset;
+    }
+
+    /**
+     * 根据当前pageNo和pageSize计算offset
+     */
+    public void calculatePagingOffset() {
+        if (pageNo < 1) {
+            this.offset = 0;
+        }
+        this.offset = (pageNo - 1) * pageSize;
     }
 }

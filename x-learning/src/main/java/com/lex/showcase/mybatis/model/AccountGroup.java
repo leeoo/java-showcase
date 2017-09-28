@@ -7,15 +7,17 @@ public class AccountGroup {
 
     private Integer version;
 
-    private String groupName;
+    private String name;
 
-    private Integer groupId;
+    private String description;
 
-    private Boolean valid;
+    private String createdBy;
 
-    private Date createAt;
+    private Date createdAt;
 
-    private Date updateAt;
+    private String updatedBy;
+
+    private Date updatedAt;
 
     public Integer getId() {
         return id;
@@ -33,43 +35,51 @@ public class AccountGroup {
         this.version = version;
     }
 
-    public String getGroupName() {
-        return groupName;
+    public String getName() {
+        return name;
     }
 
-    public void setGroupName(String groupName) {
-        this.groupName = groupName == null ? null : groupName.trim();
+    public void setName(String name) {
+        this.name = name == null ? null : name.trim();
     }
 
-    public Integer getGroupId() {
-        return groupId;
+    public String getDescription() {
+        return description;
     }
 
-    public void setGroupId(Integer groupId) {
-        this.groupId = groupId;
+    public void setDescription(String description) {
+        this.description = description == null ? null : description.trim();
     }
 
-    public Boolean getValid() {
-        return valid;
+    public String getCreatedBy() {
+        return createdBy;
     }
 
-    public void setValid(Boolean valid) {
-        this.valid = valid;
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy == null ? null : createdBy.trim();
     }
 
-    public Date getCreateAt() {
-        return createAt;
+    public Date getCreatedAt() {
+        return createdAt;
     }
 
-    public void setCreateAt(Date createAt) {
-        this.createAt = createAt;
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
     }
 
-    public Date getUpdateAt() {
-        return updateAt;
+    public String getUpdatedBy() {
+        return updatedBy;
     }
 
-    public void setUpdateAt(Date updateAt) {
-        this.updateAt = updateAt;
+    public void setUpdatedBy(String updatedBy) {
+        this.updatedBy = updatedBy == null ? null : updatedBy.trim();
+    }
+
+    public Date getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
     }
 }

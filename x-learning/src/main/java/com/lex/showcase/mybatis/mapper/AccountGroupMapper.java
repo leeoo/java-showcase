@@ -2,6 +2,8 @@ package com.lex.showcase.mybatis.mapper;
 
 import com.lex.showcase.mybatis.model.AccountGroup;
 
+import java.util.List;
+
 public interface AccountGroupMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -14,4 +16,6 @@ public interface AccountGroupMapper {
     int updateByPrimaryKeySelective(AccountGroup record);
 
     int updateByPrimaryKey(AccountGroup record);
+
+    List<AccountGroup> findByIds(List<Integer> accountGroupIds);
 }
