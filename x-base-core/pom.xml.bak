@@ -83,7 +83,7 @@
         <version.commons.lang>2.6</version.commons.lang>
         <version.commons.codec>1.10</version.commons.codec>
         <version.commons.collections>3.2.1</version.commons.collections>
-        <!--<version.guava></version.guava>-->
+        <!--<version.guava>23.2</version.guava>-->
 
 
         <!--<spring.security.version>4.0.2.RELEASE</spring.security.version>-->
