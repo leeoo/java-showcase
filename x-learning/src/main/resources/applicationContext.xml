@@ -27,18 +27,58 @@
     </bean>
 	 -->
 
+    <!-- 使用annotation 自动注册bean,并保证@Required,@Autowired的属性被注入 -->
+    <context:component-scan base-package="com.lex.showcase.multiple_datasource*" />
+    <context:component-scan base-package="com.lex.showcase.spring*" />
+
+	<!-- JNDI 配置方式
+	<bean id="dataSourceMaster" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName">
+			<value>${points.datasource.jndiName.master}</value>
+		</property>
+	</bean>
+	<bean id="dataSourceSlave" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName">
+			<value>${points.datasource.jndiName.slave}</value>
+		</property>
+	</bean>
+	-->
+
+    <bean id="dataSourceMaster" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="${jdbc.driver}"/>
+        <property name="url" value="${jdbc.url}" />
+        <property name="username" value="${jdbc.username}" />
+        <property name="password" value="${jdbc.password}" />
+    </bean>
+    <bean id="dataSourceSlave" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="${jdbc.slave.driver}"/>
+        <property name="url" value="${jdbc.slave.url}" />
+        <property name="username" value="${jdbc.slave.username}" />
+        <property name="password" value="${jdbc.slave.password}" />
+    </bean>
+
+	<bean id="dataSource" class="com.lex.showcase.multiple_datasource.datasource.DynamicRoutingDataSource">
+		<property name="targetDataSources">
+			<map key-type="java.lang.String">
+				<entry key="master" value-ref="dataSourceMaster"/>
+				<entry key="slave" value-ref="dataSourceSlave"/>
+			</map>
+		</property>
+		<property name="defaultTargetDataSource" ref="dataSourceMaster"/>
+	</bean>
+
 	<!--创建jdbc数据源 -->
-	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+	<!--<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close">
 		<property name="driverClassName" value="${jdbc.driver}" />
 		<property name="url" value="${jdbc.url}" />
-		<property name="username" value="${jdbc.user}" />
+		<property name="username" value="${jdbc.username}" />
 		<property name="password" value="${jdbc.password}" />
 		<property name="initialSize" value="${dbcp.initialSize}" />
 		<property name="maxActive" value="${dbcp.maxActive}" />
 		<property name="maxIdle" value="${dbcp.maxIdle}" />
 		<property name="minIdle" value="${dbcp.minIdle}" />
-	</bean>
+	</bean>-->
 
 	<!-- 创建SqlSessionFactory，同时指定数据源 -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
@@ -62,15 +102,16 @@
 	</bean> -->
     <!-- 让MapperScannerConfigurer去自动扫描所有的mapper接口！ -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.lex.showcase.mybatis_spring"/>
+        <property name="basePackage" value="com.lex.showcase.mybatis.mapper,com.lex.showcase.common.mybatis_spring"/>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
     </bean>
 
 <!-- 	<bean id="userDaoImpl2" class="com.lex.webside.showcase.mybatis_spring.UserDaoImpl2">
 		<property name="userMapper" ref="userMapper" /> -->
 
 		<!-- src/main/java与src/test/java下的com.asm.dao包下与Spring AOP相关的demo（通过ProxyTest.java类来测试） 
-		<bean id="userDaoImpl" class="com.asm.dao.impl.UserDaoImpl" />
-		<bean id="theInterceptor" class="com.asm.dao.impl.factory.TheInterceptor" />-->
+		<bean id="userDaoImpl" class="com.asm.com.smart.dao.impl.UserDaoImpl" />
+		<bean id="theInterceptor" class="com.asm.com.smart.dao.impl.factory.TheInterceptor" />-->
 
 		<!-- 使用annotation 自动注册bean,并保证@Required,@Autowired的属性被注入 -->
 		<!-- <context:component-scan base-package="com.asm" /> -->
@@ -84,5 +125,17 @@
 		<property name="age" value="16"/>
 	</bean>
 
-		<!--<aop:aspectj-autoproxy />-->
+    <!-- 多数据源配置proxy-target-class="true"是work的! -->
+    <!--<aop:aspectj-autoproxy proxy-target-class="true"/>-->
+    <bean id="dataSourceAspect" class="com.lex.showcase.multiple_datasource.datasource.DataSourceAspect"/>
+    <!-- 多数据源配置proxy-target-class="true"是work的! -->
+    <aop:config proxy-target-class="true">
+        <aop:aspect ref="dataSourceAspect" order="0">
+            <aop:pointcut expression="@annotation(com.lex.showcase.multiple_datasource.datasource.DataSource)"
+                          id="dataSourcePoint"/>
+            <aop:before method="getRoutingKey" pointcut-ref="dataSourcePoint"/>
+            <aop:after method="restoreDataSource" pointcut-ref="dataSourcePoint"/>
+        </aop:aspect>
+    </aop:config>
+
 </beans>

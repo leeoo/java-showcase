@@ -5,4 +5,4 @@ spring:
     password: dbpass
     driver-class: com.mysql.jdbc.Driver
 
-  management.security.enabled=false
+  management.security.enabled: false

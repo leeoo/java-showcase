@@ -16,7 +16,7 @@ import java.io.ObjectOutputStream;
  */
 public class DeepCloneViaStream<T> {
 
-    public static <T> T deepClone(T obj) throws IOException, ClassNotFoundException {
+    public static <T> T deepCopy(T obj) throws IOException, ClassNotFoundException {
         // Step 1. 通过输出流将对象序列化成字节数组写入内存
         ByteArrayOutputStream bout = new ByteArrayOutputStream();
         ObjectOutputStream oos = new ObjectOutputStream(bout);
@@ -28,7 +28,7 @@ public class DeepCloneViaStream<T> {
         return (T) ois.readObject();
     }
 
-    public static <T> T shadowClone(T obj) throws IOException, ClassNotFoundException {
+    public static <T> T shallowCopy(T obj) throws IOException, ClassNotFoundException {
         // TODO
         return null;
     }
@@ -38,9 +38,9 @@ public class DeepCloneViaStream<T> {
             return null;
         }
         if (deep) {
-            return deepClone(obj);
+            return deepCopy(obj);
         } else {
-            return shadowClone(obj);
+            return shallowCopy(obj);
         }
     }
 

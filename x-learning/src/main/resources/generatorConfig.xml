@@ -13,12 +13,24 @@
 	    </commentGenerator>
 
 	    <!-- 数据库连接 -->
-	    <jdbcConnection driverClass="org.postgresql.Driver"
+	    <!--<jdbcConnection driverClass="org.postgresql.Driver"
 	        connectionURL="jdbc:postgresql://127.0.0.1:5432/showcase"
 	        userId="postgres"
 	        password="fuckgfw">
+	    </jdbcConnection>-->
+		<!-- 演示多数据源主从库配置 begin -->
+	    <jdbcConnection driverClass="org.postgresql.Driver"
+	        connectionURL="jdbc:postgresql://127.0.0.1:5432/master_slave_demo"
+	        userId="postgres"
+	        password="fuckgfw">
 	    </jdbcConnection>
-	
+	    <!--<jdbcConnection driverClass="com.mysql.Driver"
+	        connectionURL="jdbc:postgresql://127.0.0.1:3306/master_slave_demo"
+	        userId="root"
+	        password="fuckgfw">
+	    </jdbcConnection>-->
+		<!-- 演示多数据源主从库配置 end -->
+
 	    <javaTypeResolver >
 	      <property name="forceBigDecimals" value="false" />
 	    </javaTypeResolver>
@@ -30,7 +42,8 @@
 	    </javaModelGenerator>
 	    
 	    <!-- SQL mapper 映射文件 -->
-	    <sqlMapGenerator targetPackage="com.lex.showcase.mybatis.mapper" targetProject="src/main/java">
+	    <!--<sqlMapGenerator targetPackage="com.lex.showcase.mybatis.mapper" targetProject="src/main/java">-->
+	    <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources">
 	      <property name="enableSubPackages" value="true" />
 	    </sqlMapGenerator>
 	    
@@ -39,7 +52,7 @@
 	      <property name="enableSubPackages" value="true" />
 	    </javaClientGenerator>
 
-		<!-- 使用MyBatis generator Maven plugin生成代码，进入learning模块，执行mvn mybatis-generator:generate -->
+		<!-- 使用MyBatis generator Maven plugin生成代码，进入x-learning模块，执行mvn mybatis-generator:generate -->
 	    <!-- 要对那些数据表进行生成操作，必须要有一个. -->
 	    <table tableName="account" domainObjectName="Account"
 	        enableCountByExample="false" enableUpdateByExample="false"
