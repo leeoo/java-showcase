@@ -18,6 +18,7 @@
         <module>x-activemq</module>
         <module>x-bigdata</module>
         <module>x-rpc</module>
+        <module>x-drools5</module>
         <!--
         <module>x-redis</module>
         <module>x-memcached</module>

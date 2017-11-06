@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+
+    <properties>
+        <property name="LOG_HOME">target/logs</property>
+        <property name="ERROR_LOG_FILE_NAME">java_showcase</property>
+    </properties>
+
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+
+        <RollingRandomAccessFile name="ErrorLog"
+                                 fileName="${LOG_HOME}/${ERROR_LOG_FILE_NAME}.log"
+                                 filePattern="${LOG_HOME}/${ERROR_LOG_FILE_NAME}.log.%d{yyyy-MM-dd}.gz">
+           <PatternLayout pattern="%d %-5p (%F:%L) - %m%n"/>
+           <Policies>
+               <TimeBasedTriggeringPolicy/>
+               <SizeBasedTriggeringPolicy size="100 MB"/>
+           </Policies>
+           <DefaultRolloverStrategy max="20"/>
+        </RollingRandomAccessFile>
+
+</Appenders>
+    <Loggers>
+        <Logger name="com.lex.showcase" level="debug">
+            <AppenderRef ref="ErrorLog"/>
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <!-- 3rd party loggers -->
+        <Logger name="org.springframework.core" level="info">
+            <AppenderRef ref="Console"/>
+        </Logger>
+        <Logger name="org.springframework.beans" level="info">
+            <AppenderRef ref="Console"/>
+        </Logger>
+        <Logger name="org.springframework.context" level="info">
+            <AppenderRef ref="Console"/>
+        </Logger>
+        <Logger name="org.springframework.web" level="info">
+            <AppenderRef ref="Console"/>
+        </Logger>
+        <Logger name="org.springframework.aop" level="info">
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <Logger name="org.apache.ibatis" level="debug">
+            <AppenderRef ref="Console"/>
+        </Logger>
+        <Logger name="org.mybatis" level="debug">
+            <AppenderRef ref="Console"/>
+        </Logger>
+        <Logger name="org.apache.ibatis.jdbc.ScriptRunner" level="debug">
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <Root level="info">
+            <AppenderRef ref="Console"/>
+        </Root>
+    </Loggers>
+</Configuration>
