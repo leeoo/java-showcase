@@ -34,12 +34,12 @@
 	<!-- JNDI 配置方式
 	<bean id="dataSourceMaster" class="org.springframework.jndi.JndiObjectFactoryBean">
 		<property name="jndiName">
-			<value>${points.datasource.jndiName.master}</value>
+			<value>${showcase.datasource.jndiName.master}</value>
 		</property>
 	</bean>
 	<bean id="dataSourceSlave" class="org.springframework.jndi.JndiObjectFactoryBean">
 		<property name="jndiName">
-			<value>${points.datasource.jndiName.slave}</value>
+			<value>${showcase.datasource.jndiName.slave}</value>
 		</property>
 	</bean>
 	-->

@@ -418,9 +418,9 @@
                 <configuration>
                     <outputDirectory>src/main/java</outputDirectory>
                     <jdbcDriver>com.mysql.jdbc.Driver</jdbcDriver>
-                    <jdbcURL>jdbc:mysql://10.199.105.111:3306/cts_uat</jdbcURL>
-                    <jdbcUserId>dbexecute321</jdbcUserId>
-                    <jdbcPassword>dbexecute321</jdbcPassword>
+                    <jdbcURL>jdbc:mysql://local:3306/showcase</jdbcURL>
+                    <jdbcUserId>root</jdbcUserId>
+                    <jdbcPassword>123456</jdbcPassword>
                 </configuration>
                 -->
                 <dependencies>
