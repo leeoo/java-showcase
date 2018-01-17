@@ -1,11 +1,17 @@
-package com.lex.showcase.drools5;
+package com.lex.showcase.drools6;
 
-import org.drools.RuleBase;
-import org.drools.StatefulSession;
-import org.drools.compiler.DroolsParserException;
-import org.drools.compiler.PackageBuilder;
-import org.drools.spi.Activation;
-import org.drools.spi.AgendaFilter;
+import org.drools.compiler.compiler.DroolsParserException;
+import org.drools.compiler.compiler.PackageBuilder;
+import org.drools.core.RuleBase;
+import org.drools.core.StatefulSession;
+import org.drools.core.spi.Activation;
+import org.drools.core.spi.AgendaFilter;
+
+//import org.drools.compiler.compiler.DroolsParserException;
+//import org.drools.compiler.compiler.PackageBuilder;
+//import org.drools.core.RuleBase;
+//import org.drools.core.StatefulSession;
+//import org.kie.api.runtime.rule.AgendaFilter;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -38,8 +44,8 @@ public class RuleEngineImpl implements RuleEngine {
     @Override
     public void refresh() {
         ruleBase = SingleRuleFactory.getRuleBase();
-        org.drools.rule.Package[] packages = ruleBase.getPackages();
-        for (org.drools.rule.Package items : packages) {
+        org.drools.core.rule.Package[] packages = ruleBase.getPackages();
+        for (org.drools.core.rule.Package items : packages) {
             ruleBase.removePackage(items.getName());
         }
         init();
@@ -53,6 +59,11 @@ public class RuleEngineImpl implements RuleEngine {
         StatefulSession statefulSession = ruleBase.newStatefulSession();
         statefulSession.insert(entityRule);
         statefulSession.fireAllRules(new AgendaFilter() {
+//            @Override
+//            public boolean accept(Match match) {
+//                return match.getRule().getName().contains("_test");
+//            }
+
             @Override
             public boolean accept(Activation activation) {
                 return !activation.getRule().getName().contains("_test");
@@ -87,7 +98,7 @@ public class RuleEngineImpl implements RuleEngine {
 
     private List<String> getRuleFile() {
         List<String> drlFilePath = new ArrayList<>();
-        String path = "/Users/Lex/workshop/java-showcase/x-drools5/src/main/java/com/lex/showcase/drools5/drools_rule.drl";
+        String path = "/Users/Lex/workshop/java-showcase/x-learning/src/main/java/com/lex/showcase/drools6/drools_rule.drl";
         drlFilePath.add(path);
         return drlFilePath;
     }

@@ -21,6 +21,16 @@
 		group_id as "group.id" -->
 		from users
 	</select>
+	<!--
+	   TODO
+		获取用户列表: 输出直接映射到对象, login_name列要"as loginName"以方便映射 ,team_id as "team.id"创建team对象并赋值-->
+	<!--<select id="findWithPagination" parameterType="UserReq" resultType="User">
+		select id, name,
+		login_name as loginName
+		&lt;!&ndash; ,
+		group_id as "group.id" &ndash;&gt;
+		from users
+	</select>-->
 
     <resultMap type="User" id="userList">
         <id column="id" property="id"/>

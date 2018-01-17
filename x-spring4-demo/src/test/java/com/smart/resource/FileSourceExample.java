@@ -16,7 +16,7 @@ import java.io.OutputStream;
 public class FileSourceExample {
     public static void main(String[] args) {
         try {
-            String filePath = "/Users/libo/workshop/java-showcase/x-spring-boot-demo/src/main/resources/conf/file1.txt";
+            String filePath = "/Users/Lex/workshop/java-showcase/x-spring-boot-demo/src/main/resources/conf/file1.txt";
 
             // 使用系统文件路径方式加载文件
             WritableResource res1 = new PathResource(filePath);

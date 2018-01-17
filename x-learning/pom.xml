@@ -34,6 +34,23 @@
 
         <mybatis.version>3.4.5</mybatis.version>
 
+        <!--<drools.version>5.6.0.Final</drools.version>-->
+        <!--<drools.version>6.0.0.Final</drools.version>-->
+        <drools.version>6.0.1.Final</drools.version>
+        <!--<drools.version>6.1.0.Final</drools.version>-->
+        <!--<drools.version>6.2.0.Final</drools.version>-->
+        <!--<drools.version>6.3.0.Final</drools.version>-->
+        <!--<drools.version>6.4.0.Final</drools.version>-->
+        <!--<drools.version>6.5.0.Final</drools.version>-->
+        <!--<drools.version>7.0.0.Final</drools.version>-->
+        <!--<drools.version>7.1.0.Final</drools.version>-->
+        <!--<drools.version>7.2.0.Final</drools.version>-->
+        <!--<drools.version>7.3.0.Final</drools.version>-->
+        <!--<drools.version>7.4.0.Final</drools.version>-->
+        <!--<drools.version>7.4.1.Final</drools.version>-->
+
+        <easy-rule.version>3.0.0</easy-rule.version>
+
         <postgresql.version>42.0.0</postgresql.version>
         <mysql.version>5.1.35</mysql.version>
 </properties>
@@ -358,6 +375,26 @@
             <artifactId>jedis</artifactId>
             <version>2.9.0</version>
         </dependency>
+
+        <!-- Rules Engine begin -->
+        <dependency>
+            <groupId>org.drools</groupId>
+            <artifactId>drools-compiler</artifactId>
+            <version>${drools.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.kie</groupId>
+            <artifactId>kie-api</artifactId>
+            <version>${drools.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jeasy</groupId>
+            <artifactId>easy-rules-core</artifactId>
+            <version>${easy-rule.version}</version>
+        </dependency>
+        <!-- Rules Engine end -->
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>

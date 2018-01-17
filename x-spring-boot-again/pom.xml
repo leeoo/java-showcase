@@ -6,7 +6,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.lex.showcase</groupId>
-    <artifactId>x-spring-boot</artifactId>
+    <artifactId>x-spring-boot-again</artifactId>
     <version>0.1</version>
 
     <parent>
@@ -24,7 +24,7 @@
 
     <dependencies>
         <!-- 配置使用log4j2替换缺省的logback begin -->
-        <dependency>
+        <!--<dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
             <exclusions>
@@ -37,11 +37,12 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-log4j2</artifactId>
-        </dependency>
-        <dependency>  <!-- 加上这个才能辨认到log4j2.yml文件 -->
+        </dependency>-->
+        <!-- 加上这个才能辨认到log4j2.yml文件 -->
+        <!--<dependency>
             <groupId>com.fasterxml.jackson.dataformat</groupId>
             <artifactId>jackson-dataformat-yaml</artifactId>
-        </dependency>
+        </dependency>-->
         <!-- 配置使用log4j2替换缺省的logback end -->
 
         <dependency>
