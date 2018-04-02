@@ -12,52 +12,52 @@
     <description>Including management base core dependencies.</description>
 
     <properties>
-        <spring.version>4.3.9.RELEASE</spring.version>
-        <spring-data-jpa.version>1.11.1.RELEASE</spring-data-jpa.version>
+        <spring.version>4.3.14.RELEASE</spring.version>
+        <spring-data-jpa.version>1.11.10.RELEASE</spring-data-jpa.version>
 
-        <commons-lang3.version>3.4</commons-lang3.version>
+        <commons-lang3.version>3.7</commons-lang3.version>
         <commons-beanutils.version>1.9.3</commons-beanutils.version>
         <commons-collections.version>4.1</commons-collections.version>
-        <commons-io.version>2.5</commons-io.version>
-        <commons-codec.version>1.10</commons-codec.version>
-        <commons-dbcp2.version>2.1</commons-dbcp2.version>
+        <commons-io.version>2.6</commons-io.version>
+        <commons-codec.version>1.11</commons-codec.version>
+        <commons-dbcp2.version>2.2.0</commons-dbcp2.version>
 
-        <guava.version>23.5-jre</guava.version>
+        <guava.version>24.1-jre</guava.version>
 
         <slf4j.version>1.7.25</slf4j.version>
         <!-- <log4jdbc.version>2.3</log4jdbc.version> -->
 
         <!-- MyBatis plugins/extends and dependencies -->
-        <mybatis.version>3.4.5</mybatis.version>
-        <mybatis-spring.version>1.3.1</mybatis-spring.version>
+        <mybatis.version>3.4.6</mybatis.version>
+        <mybatis-spring.version>1.3.2</mybatis-spring.version>
         <mybatis-generator.version>1.3.6</mybatis-generator.version>
-        <mybatis-pagehelper.version>4.0.3</mybatis-pagehelper.version>
-        <mybatis-mapper.version>3.3.0</mybatis-mapper.version>
-        <jsqlparser.version>0.9.1</jsqlparser.version>
-        <mybatis-ext.version>0.0.1</mybatis-ext.version>
-        <mybatis-plus.version>2.0.7</mybatis-plus.version>
+        <mybatis-pagehelper.version>5.1.2</mybatis-pagehelper.version>
+        <mybatis-mapper.version>4.0.1</mybatis-mapper.version>
+        <jsqlparser.version>1.1</jsqlparser.version>
+        <mybatis-ext.version>0.0.4</mybatis-ext.version>
+        <mybatis-plus.version>2.2.0</mybatis-plus.version>
 
-        <druid.version>1.0.27</druid.version>
+        <druid.version>1.1.9</druid.version>
 
-        <postgresql.version>42.0.0</postgresql.version>
-        <mysql.version>5.1.35</mysql.version>
-        <h2database.version>1.4.196</h2database.version>
+        <postgresql.version>42.2.2</postgresql.version>
+        <mysql.version>6.0.6</mysql.version>
+        <h2database.version>1.4.197</h2database.version>
 
         <!-- Use the latest version whenever possible. -->
-        <jackson.version>2.9.1</jackson.version>
-        <fastjson.version>1.2.31</fastjson.version>
-        <poi.version>3.15</poi.version>
+        <jackson.version>2.9.5</jackson.version>
+        <fastjson.version>1.2.47</fastjson.version>
+        <poi.version>3.17</poi.version>
         <sitemesh3.version>3.0.1</sitemesh3.version>
 
-        <freemarker.version>2.3.26-incubating</freemarker.version>
+        <freemarker.version>2.3.27-incubating</freemarker.version>
         <velocity.version>1.7</velocity.version>
 
-        <xstream.version>1.4.9</xstream.version>
+        <xstream.version>1.4.10</xstream.version>
 
         <shiro.version>1.4.0</shiro.version>
-        <spring-security.version>4.2.2.RELEASE</spring-security.version>
+        <spring-security.version>4.2.5.RELEASE</spring-security.version>
 
-        <aspectj.version>1.8.10</aspectj.version>
+        <aspectj.version>1.8.13</aspectj.version>
     </properties>
 
     <dependencyManagement>
