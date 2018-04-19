@@ -19,11 +19,11 @@ public class CustomInvocationHandler implements InvocationHandler {
 		return result;
 	}
 
-	private void afterInvoke() {
+	private void beforeInvoke() {
 		System.out.println("Do something before invocation...");
 	}
 
-	private void beforeInvoke() {
+	private void afterInvoke() {
 		System.out.println("Do something after invocation...");
 	}
 
