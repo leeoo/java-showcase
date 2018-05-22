@@ -3,6 +3,7 @@ package com.lex.showcase.algorithm.basic;
 import java.util.Arrays;
 
 /**
+ * 快速排序是不稳定的排序，但是算法复杂度低，平均算法复杂度为：O(nlgn)，最差为O(n^2)。空间复杂度为：O(lgn)
  */
 public class QuickSorting {
 

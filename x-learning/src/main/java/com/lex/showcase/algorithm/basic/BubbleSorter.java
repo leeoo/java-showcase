@@ -3,7 +3,7 @@ package com.lex.showcase.algorithm.basic;
 import java.util.Arrays;
 
 /**
- *
+ * 冒泡排序是稳定的排序，但是算法复杂度较高，平均和最差都是：O(n^2)，空间复杂度为：O(1)
  */
 public class BubbleSorter {
 
@@ -14,10 +14,10 @@ public class BubbleSorter {
         int length = a.length;
         for (int i = 0; i < length; i++) {
             for (int j = 0; j < length - i - 1; j++) {
-                if (a[j] > a[j+1]) {
+                if (a[j] > a[j + 1]) {
                     int temp = a[j];
-                    a[j] = a[j+1];
-                    a[j+1] = temp;
+                    a[j] = a[j + 1];
+                    a[j + 1] = temp;
                 }
             }
         }
